@@ -1,13 +1,11 @@
-/* ── brat visualizer ─────────────────────────────────── */
-
-* {
+{
   box-sizing: border-box;
   margin: 0;
   padding: 0;
 }
 
 :root {
-  --brat:      #8ACE00;
+  --brat:      #8ACF01;
   --brat-dark: #6ba800;
   --black:     #000000;
   --white:     #ffffff;
@@ -19,12 +17,10 @@ html, body {
   background: var(--brat);
   overflow: hidden;
 
-  /* Authentic brat font: Arial, blurry, lowercase */
   font-family: Arial, Helvetica, sans-serif;
   cursor: none;
 }
 
-/* ── p5 canvas sits full-screen ─── */
 canvas {
   display: block;
   position: fixed;
@@ -32,7 +28,6 @@ canvas {
   left: 0;
 }
 
-/* ── Splash / start screen ─── */
 #splash {
   position: fixed;
   inset: 0;
@@ -59,7 +54,6 @@ canvas {
   letter-spacing: -0.03em;
   line-height: 1;
 
-  /* Iconic brat blur */
   filter: blur(4px);
 
   transform: scale(1);
@@ -82,7 +76,6 @@ canvas {
   filter: blur(0.5px);
 }
 
-/* ── HUD info overlay ─── */
 #hud {
   position: fixed;
   bottom: 24px;
@@ -107,7 +100,6 @@ canvas {
   opacity: 1;
 }
 
-/* ── Custom cursor ─── */
 #cursor {
   position: fixed;
   width: 10px;
