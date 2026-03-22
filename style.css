@@ -1,0 +1,122 @@
+/* ── brat visualizer ─────────────────────────────────── */
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  --brat:      #8ACE00;
+  --brat-dark: #6ba800;
+  --black:     #000000;
+  --white:     #ffffff;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background: var(--brat);
+  overflow: hidden;
+
+  /* Authentic brat font: Arial, blurry, lowercase */
+  font-family: Arial, Helvetica, sans-serif;
+  cursor: none;
+}
+
+/* ── p5 canvas sits full-screen ─── */
+canvas {
+  display: block;
+  position: fixed;
+  top: 0;
+  left: 0;
+}
+
+/* ── Splash / start screen ─── */
+#splash {
+  position: fixed;
+  inset: 0;
+  background: var(--brat);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 200;
+  transition: opacity 0.5s ease;
+  cursor: pointer;
+}
+
+#splash.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#splash .title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: clamp(100px, 22vw, 200px);
+  font-weight: 400;
+  color: var(--black);
+  letter-spacing: -0.03em;
+  line-height: 1;
+
+  /* Iconic brat blur */
+  filter: blur(4px);
+
+  transform: scale(1);
+  transition: transform 0.2s ease, filter 0.2s ease;
+}
+
+#splash:hover .title {
+  filter: blur(2px);
+  transform: scale(1.02);
+}
+
+#splash .hint {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.45);
+  letter-spacing: 0.12em;
+  text-transform: lowercase;
+  margin-top: 20px;
+  filter: blur(0.5px);
+}
+
+/* ── HUD info overlay ─── */
+#hud {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 100;
+
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10px;
+  font-weight: 400;
+  color: rgba(0, 0, 0, 0.35);
+  letter-spacing: 0.15em;
+  text-transform: lowercase;
+  filter: blur(0.5px);
+  pointer-events: none;
+
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+#hud.visible {
+  opacity: 1;
+}
+
+/* ── Custom cursor ─── */
+#cursor {
+  position: fixed;
+  width: 10px;
+  height: 10px;
+  background: var(--black);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  mix-blend-mode: multiply;
+  transition: transform 0.1s ease;
+}
