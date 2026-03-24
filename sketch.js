@@ -50,7 +50,6 @@ function draw() {
   let level = amplitude.getLevel(); 
 
   if (peakDetect.isDetected) {
-    // Kick / bass → big punch
     targetScale = 1.55 + random(0, 0.15);
   }
 
